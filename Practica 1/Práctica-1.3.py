@@ -18,7 +18,7 @@ try:
             break
         response += data
 except socket.timeout:
-    print("Timeout al recibir la respuesta")
+    print("Timeout al recibir la respuestaaaa")
 
 print(response.decode(errors="ignore"))
 
