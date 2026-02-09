@@ -1,6 +1,6 @@
 import sys
 
-#python W:\HET\imprimir_archivo.py C:\Windows\System32\drivers\etc\hosts
+#python W:\HET\imprimir_archivo.py C:\Windows\System32\drivers\etc\hosts   comentario
 
 if len(sys.argv) != 2:
     print("Uso: python imprimir_archivo.py <ruta_del_fichero>")
