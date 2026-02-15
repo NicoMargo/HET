@@ -33,7 +33,7 @@ print(lista_inmutable)
 print(diccionario)
 print(conjunto)
 
-conjunto[1] = 40
+#conjunto[1] = 40
 
 #print(conjunto)
 
