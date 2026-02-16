@@ -3,11 +3,14 @@ import socket
 host = "www.upv.es"
 port = 80
 
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)   #ipv4 y tcp -----------#inetv6 y dgram para udp
+
+s.settimeout(5)  #5 segundos
+
 s.connect((host, port))
 
 peticion = "GET / HTTP/1.1\r\nHost: www.upv.es\r\n\r\n"
-s.send(peticion.encode())
+s.send(peticion.encode())  #por defecto es encode("UTF-8")
 
 
 response = b""  # inicializar bytes
