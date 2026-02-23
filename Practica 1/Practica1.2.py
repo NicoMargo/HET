@@ -10,7 +10,7 @@ ruta = sys.argv[1]
 
 try:
     with open(ruta, "r") as f:
-        print(f.read())
+        sys.stdout.write(f.read())
 except FileNotFoundError:
     print("El archivo no existe.")
 except PermissionError:
