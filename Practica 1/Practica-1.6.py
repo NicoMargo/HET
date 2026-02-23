@@ -1,30 +1,33 @@
 import sys
 import struct
 
+# sys.argv guarda los argumentos de la línea de comandos. 
 if len(sys.argv) != 2:
-    print("Pon: python script.py numero")
+    print("Uso correcto: python script.py <numero>")
     sys.exit(1)
 
+# Convertimos el argumento (que entra como texto) a un número entero.
 n = int(sys.argv[1])
 
-b1 = struct.pack("B", n & 0xff)        # 1 byte, mira solo el ultimo byte de n
-b2 = struct.pack("<H", n & 0xffff)     # 2 bytes, los dos ultimos bytes
-b4 = struct.pack("<I", n & 0xffffffff) # 4 bytes 
+# -- UN BYTE --
+# "B" significa entero sin signo de 1 byte (unsigned char en C).
+# 'n & 0xff' (máscara AND a nivel de bits) fuerza a que solo miremos los últimos 8 bits.
+# Si metes un número mayor a 255 (ej. 300), esto evita que la función lance un error,
+# simplemente truncará el número y se quedará con la parte que cabe en 1 byte.
+b1 = struct.pack("B", n & 0xff)        
 
-# escribir bytes crudos a stdout
+# -- DOS BYTES --
+# "<H" significa entero sin signo de 2 bytes (unsigned short).
+# El símbolo "<" indica "Little-Endian" (el byte menos significativo se guarda primero).
+# 'n & 0xffff' limita el valor a 16 bits.
+b2 = struct.pack("<H", n & 0xffff)     
+
+# -- CUATRO BYTES --
+# "<I" significa entero sin signo de 4 bytes (unsigned int).
+# También en Little-Endian.
+# 'n & 0xffffffff' limita el valor a 32 bits.
+b4 = struct.pack("<I", n & 0xffffffff) 
+
+# sys.stdout.buffer.write() nos permite volcar los datos binarios crudos (raw) directamente.
+# Aquí concatenamos (sumamos) los bytes de 1, 2 y 4 tamaños y los enviamos.
 sys.stdout.buffer.write(b1 + b2 + b4)
-
-
-
-
-#B → entero sin signo de 1 byte
-#H → entero de 2 bytes
-#I → entero de 4 bytes     ejemplo:0x0000012C
-
-#< → little-endian (primero el byte más bajo)  ---------- si es 0x012C entonces --- Primer byte = 0x2C, segundo = 0x01
-
-#& 0xff etc evita errores si el número es muy grande.
-
-#hd
-
-#para probar: python script.py 300 | hd
