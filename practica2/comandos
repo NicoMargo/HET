@@ -1,0 +1,2 @@
+gcc -ggdb -m32 -O0 -fno-pie -no-pie hello.c -o hello
+gdb -args ./hello
