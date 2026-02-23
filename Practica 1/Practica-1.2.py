@@ -1,9 +1,9 @@
 import sys
 
-#python W:\HET\imprimir_archivo.py C:\Windows\System32\drivers\etc\hosts   comentario
+#python Practica-1.2.py /etc/passwd
 
 if len(sys.argv) != 2:
-    print("Uso: python imprimir_archivo.py <ruta_del_fichero>")
+    print("Uso: python Practica-1.2.py <ruta_del_fichero>")
     sys.exit(1)
 
 ruta = sys.argv[1]
