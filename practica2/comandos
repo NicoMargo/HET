@@ -1,2 +1,10 @@
 gcc -ggdb -m32 -O0 -fno-pie -no-pie hello.c -o hello
 gdb -args ./hello
+b main
+run
+layout split
+focus cmd
+print /x $pc
+set $pc = 0x80491d6
+print /x $pc
+x/24xw $esp
