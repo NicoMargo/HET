@@ -1,0 +1,2 @@
+gcc -no-pie -fno-pie -m32 -O0 -fomit-frame-pointer XXX.c -o XXX
+
