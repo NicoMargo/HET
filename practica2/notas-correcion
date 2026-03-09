@@ -1,0 +1,5 @@
+ejercicio 2 - explicarme mejor con lo del flujo - dirección de retorno... va y viene...
+
+ejercicio 3 - explicar mejor cada dirección
+
+ejercicio 4 - si cambia en el stack (no es afectado por el parámetro de compilación, porque?), ejecutar con gdb o no, la pila se ejecuta y si el flag tiene algo que ver con la pila.
